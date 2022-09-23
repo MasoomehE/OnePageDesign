@@ -1,0 +1,23 @@
+{
+  "name": "bluesite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tailwind": "tailwindcss -i src/tailwind.css -o css/main.css -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.4",
+    "postcss": "^8.4.12",
+    "sass": "^1.51.0",
+    "tailwindcss": "^3.0.24",
+    "vite": "^2.9.4"
+  },
+  "dependencies": {
+    "aos": "^2.3.4",
+    "tailwind": "^4.0.0"
+  }
+}

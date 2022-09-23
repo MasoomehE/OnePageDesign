@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Masoomeh Ebrahimzadeh">
+    <meta name="description" content="This is our company's website">
+    <meta name="keywords" content="Html,css,js,php,about us,contanct us">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery.js"></script>
+    <script>
+        $(window).scroll(function(){
+            var scroll_top = $(this).scrollTop();
+
+            if(scroll_top >= 300){
+                $(".scrolltop").animate({right: "15px"},50)
+            }else{
+                $(".scrolltop").animate({right: "-3rem"},50)
+            }
+        })
+        $(document).ready(function(){
+            $(".scrolltop").click(function(){
+                $("html").animate({scrollTop: 0},1800)
+            })
+
+            $(".bord").click(function(){
+                $("html").animate({scrollTop: 550},1400)
+            })
+
+            $(".bord2").click(function(){
+                $("html").animate({scrollTop: 1300},1400)
+            })
+
+            $(".bord3").click(function(){
+                $("html").animate({scrollTop: 2500},1400)
+            })
+
+            $(".bord4").click(function(){
+                $("html").animate({scrollTop: 3100},1300)
+            })
+
+            $(".bord5").click(function(){
+                $("html").animate({scrollTop: 3700},1300)
+            })
+
+
+        })
+    </script>
+    <script
+            src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js"
+            defer
+    ></script>
+
+
+    <title>صفحه اصلی</title>
+</head>
+<body dir="rtl" class="font-body overflow-x-hidden">
+    <div class="img h-screen mx-auto text-center">
+        <img src="images/top.png" alt="" class="scrolltop animate-bounce fixed right-5 bottom-5 opacity-70 z-20 w-12 transition duration-200 ease-in-out hover:opacity-100 cursor-pointer">
+        <!--navbar -->
+        <div class="container w-full">
+            <nav class="hidden text-sm w-full mx-auto h-24 px-4 text-cyan-50 md:flex md:flex-row  border-b-gray-300 z-20 items-center justify-around ">
+
+
+                <div class="flex flex-row justify-around relative">
+                    <a href="#" class="py-2 my-3 mx-6 "><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                    </svg></a>
+
+                    <a href="#" class="py-2 my-3 mx-6 "><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
+                    </svg></a>
+
+                    <a href="#about" class="py-2 my-3 mx-6 bord ">درباره  ما</a>
+                    <a href="#service" class="py-2 m-3 mx-6 bord2">خدمات</a>
+                    <a href="#portfolio" class="py-2 m-3 mx-6 bord3">نمونه کار ها</a>
+                    <a href="#weblog" class="py-2 m-3 mx-6 bord4">وبلاگ</a>
+                    <a href="#contact" class="py-2 m-3 mx-6 bord5">ارتباط با ما</a>
+                </div>
+
+
+                <div class="w-14 h-14 flex justify-end">
+                    <img src="images/Layer%201.png" alt="">
+                </div>
+
+            </nav>
+
+
+        </div>
+        <!--end navbar -->
+
+        <!-- Mobile Nav -->
+        <div class="md:hidden " x-data="dropdown">
+            <div @click="toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white m-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </div>
+            <div class="w-full h-14 flex justify-end items-center absolute">
+                <img src="images/Layer%201.png" alt="logo" class="w-14 relative bottom-16 left-5">
+            </div>
+
+            <div
+                    x-show="open"
+                    x-cloak
+                    class="absolute top-0 bg-white rounded-b-lg border py-4 px-6 w-full z-20 "
+                    x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="-translate-y-96"
+                    x-transition:enter-end="opacity-100 scale-100"
+                    x-transition:leave="transition ease-in duration-300"
+                    x-transition:leave-start="opacity-100 scale-100"
+                    x-transition:leave-end="-translate-y-96 transition ease-out duration-300 ">
+
+
+                <div class="absolute" @click="open=false">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-sky-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </div>
+
+                <div >
+                    <ul class="flex flex-col gap-7 text-center">
+                        <li class="nav-item"><a href="#about">درباره ما</a></li>
+                        <li class="nav-item"><a href="#service">خدمات</a></li>
+                        <li class="nav-item"><a href="#portfolio">نمونه کارها</a></li>
+                        <li class="nav-item"><a href="#weblog">وبلاگ</a></li>
+                        <li class="nav-item"><a href="#contact">ارتباط با ما</a></li>
+
+                    </ul>
+                </div>
+
+
+
+            </div>
+        </div>
+        <!-- end mobile nav -->
+
+        <!-- main -->
+        <div class="text-center text-white relative top-44 ">
+
+            <h1 class="sm:text-4xl md:text-6xl mx-auto  text-center select-none type animate-[typing_w-full] " >به بلو سایت خوش آمدید</h1>
+            <br>
+            <hr class=" w-20 border-amber-50 border-solid border-2 mx-auto rounded-lg" >
+            <br>
+            <br>
+            <button class=" border-2 border-white rounded-lg py-2 px-4 text-lg hover:bg-gradient-to-bl from-sky-400 to bg-gradient-to-tr transition-colors transition-all " >نمونه کارها</button>
+            <br>
+            <svg  xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 animate-bounce text-center mx-auto mt-20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
+            </svg>
+        </div>
+        <!--end main -->
+
+        </div>
+
+    <!-- about us -->
+
+    <div class="w-full h-full flex flex-col bg-gray-50 text-center justify-center items-center abouttop" >
+        <a name="about"></a>
+        <div class="w-3/4 py-6 mx-auto px-2"  >
+            <br>
+            <h3 class="text-gray-500 text-sm select-none" data-aos="fade-down">ما چه کاری انجام میدهیم</h3>
+            <br>
+            <h2 class="text-2xl select-none" data-aos="fade-down">درباره ما</h2>
+            <br>
+            <hr class=" w-14 border-sky-500 border-solid border-2 mx-auto rounded-lg" data-aos="fade-down">
+            <br>
+            <p  class="select-none w-3/4 mx-auto text-sm text-gray-700 leading-loose" data-aos="fade-down">طراحی سایت های فروشگاهی و شیک با پشتیبانی رایگان میتواند به حفظ کسب و کار و مشتریان آنلاین شما در صورت بروز هرگونه مشکل (مثل فیلتر شدن اینستاگرام) کمک کند. تیم بلوسایت تمامی این خدمات را برای شما فراهم میکند&#x2764</p>
+            <br>
+            <div class="md:flex md:flex-row-reverse py-4 justify-center items-center sm:flex sm:flex-col ">
+                <a href="#" class="mx-4 my-2 md:w-1/3 rounded-lg shadow-xl drop-shadow-2xl" data-aos="fade-down-right"><img loading="lazy" src="images/Layer 39.png" alt="" class="rounded-lg sm:w-full hover:border-4 hover:border-l-sky-300 hover:border-t-sky-400 hover:border-r-pink-300 hover:border-b-pink-400 transition-colors transition-all"></a>
+                <a href="https://www.instagram.com/blue__site" class="mx-4 my-2 md:w-1/3 rounded-lg shadow-xl drop-shadow-2xl" data-aos="fade-up"><img loading="lazy" src="images/Group 1.png" alt="" class="rounded-lg sm:w-full hover:border-4 hover:border-l-sky-300 hover:border-t-sky-400 hover:border-r-pink-300 hover:border-b-pink-400 transition-colors transition-all"></a>
+                <a href="#" class="mx-4 my-3 md:w-1/3 rounded-lg shadow-xl drop-shadow-2xl" data-aos="fade-down-left"> <img loading="lazy" src="images/Layer 41.png" alt="" class="rounded-lg sm:w-full hover:border-4 hover:border-l-sky-300 hover:border-t-sky-400 hover:border-r-pink-300 hover:border-b-pink-400 transition-colors transition-all"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- end about us -->
+
+    <!-- our service -->
+        <div class="w-full h-auto flex flex-col justify-center items-center" >
+            <a name="service"></a>
+            <br>
+            <h3 class="text-gray-500 text-sm" data-aos="zoom-in">کار ما چیست؟</h3>
+            <br>
+            <h2 class="text-2xl" data-aos="zoom-in">خدمات ما</h2>
+            <br>
+            <hr class=" w-14 border-sky-500 border-solid border-2 mx-auto rounded-lg" data-aos="zoom-in">
+            <br>
+            <!--section 1 -->
+            <div class="w-3/4 mx-auto md:flex md:flex-row  sm:flex sm:flex-col sm:justify-center md:justify-around items-center my-6 ">
+                <div class="flex flex-row md:w-1/3 sm:w-full mb-5" data-aos="zoom-in-down">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-sky-500 my-4 mx-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    </svg>
+                    <div>
+                        <h2 class="text-gray-800 text-lg py-2">خلاقیت</h2>
+                        <p class="text-sm text-gray-600">لازمه ی تداوم هرکاری خلاقیت هست</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-row md:w-1/3 sm:w-full mb-5" data-aos="zoom-in-down">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-sky-500 my-4 mx-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    <div>
+                        <h2 class="text-gray-800 text-lg py-2">طراحی سایت</h2>
+                        <p class="text-sm text-gray-600">طراحی سایت فروشگاهی ، شرکتی و ... با وردپرس</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-row md:w-1/3 sm:w-full mb-5" data-aos="zoom-in-down">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-sky-500 my-4 mx-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z" />
+                    </svg>
+                    <div>
+                        <h2 class="text-gray-800 text-lg py-2">موشن گرافیک</h2>
+                        <p class="text-sm text-gray-600">ساخت لوگو موشن ، موشن گرافیک و پروژه های افترافکت</p>
+                    </div>
+                </div>
+            </div>
+            <!-- section 2 -->
+            <div class="w-3/4 mx-auto md:flex md:flex-row  sm:flex sm:flex-col justify-around items-center md:my-8 sm:my-0">
+                <div class="flex flex-row md:w-1/3 sm:w-full mb-5" data-aos="zoom-in-up">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-sky-500 my-4 mx-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+                    </svg>
+                    <div>
+                        <h2 class="text-gray-800 text-lg py-2">برنامه نویسی</h2>
+                        <p class="text-sm text-gray-600">برنامه نویسی فرانت اند و بک اند وبسایت </p>
+                    </div>
+                </div>
+
+                <div class="flex flex-row md:w-1/3 sm:w-full mb-5" data-aos="zoom-in-up">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-sky-500 my-6 mx-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                    </svg>
+                    <div>
+                        <h2 class="text-gray-900 text-lg py-2 font-bold">Css/Html</h2>
+                        <p class="text-sm text-gray-600">کدنوسی قالب های ریسپانسیو مختلف با CSS و HTML و فریمورک تیلویند</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-row md:w-1/3 sm:w-full mb-5" data-aos="zoom-in-up">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-sky-500 my-4 mx-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                    <div>
+                        <h2 class="text-gray-800 text-lg py-2">سئو</h2>
+                        <p class="text-sm text-gray-600">انجام خدمات سئو اختصاصی وبسایت ها </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    <!-- end our service -->
+
+
+    <!-- trahi modern -->
+       <div class=" w-full h-auto flex flex-col justify-center about items-center pt-16 my-2" >
+          <h3 class="text-gray-500 text-sm" data-aos="fade-up">برای همه دستگاه ها</h3>
+          <br>
+          <h2 class="text-2xl" data-aos="fade-up">طراحی مدرن</h2>
+          <br>
+          <hr class=" w-14 border-sky-500 border-solid border-2 mx-auto rounded-lg" data-aos="fade-up">
+          <br>
+          <div class="flex flex-col items-center justify-end pt-2 md:w-1/2 sm:3/4 mx-auto" data-aos="fade-down">
+              <img src="images/responsive.png" alt="" class="px-4 text-center">
+          </div>
+
+
+      </div>
+<!--  end trahi modern -->
+
+
+    <!-- nemooneh kar -->
+        <div class="w-full flex flex-col justify-center items-center my-6">
+            <a name="portfolio"></a>
+            <br>
+            <h3 class="text-gray-500 text-sm" data-aos="fade-down">نمونه کارهای ما چگونه است؟</h3>
+            <br>
+            <h2 class="text-2xl" data-aos="fade-down">نمونه کارهای ما</h2>
+            <br>
+            <hr class=" w-14 border-sky-500 border-solid border-2 mx-auto rounded-lg" data-aos="fade-down">
+            <br>
+            <p class=" w-3/4 mx-auto text-sm text-gray-700 leading-loose text-center" data-aos="fade-down">نمونه کارهای طراحی وبسایت و موشن گرافیک و کدنویسی قالب</p>
+            
+            <div class="flex flex-wrap w-full justify-center items-center mx-auto">
+                <a href="https://www.happyboxes.ir" class="w-96 mx-auto my-16" data-aos="fade-up-left"><img src="images/n1.png" alt="happyboxes.ir"></a>
+                <img src="images/n2.png" alt="" class="w-96 mx-auto my-16" data-aos="fade-up-right">
+            </div>
+        </div>
+
+    <!--  end nemooneh kar -->
+
+    <!--   posts -->
+        <article class="w-full flex flex-col justify-center items-center mt-5 posts h-auto">
+            <a name="weblog"></a>
+            <br>
+            <h3 class="text-gray-500 text-sm" data-aos="fade-down">مطالب</h3>
+            <br>
+            <h2 class="text-2xl" data-aos="fade-down">آخرین پست های وبلاگ</h2>
+            <br>
+            <hr class=" w-14 border-sky-500 border-solid border-2 mx-auto rounded-lg" data-aos="fade-down">
+            <br>
+
+
+            <div class="w-3/4 mx-auto md:flex md:flex-row sm:flex sm:flex-col justify-center items-center" >
+                <div class="md:w-1/3 sm:w-full py-4 relative mx-4" data-aos="flip-left"
+                     data-aos-easing="ease-out-cubic"
+                     data-aos-duration="1000">
+                    <img src="images/Layer 57.png" alt="" class="py-2 shadow-xl drop-shadow-2xl">
+                    <span class="text-white bg-sky-400 px-2 py-4 mx-auto text-sm text-center absolute bottom-36 left-0 bg-opacity-80 rounded-br-lg rounded-tl-lg">12  شهریور</span>
+                    <h1 class="text-lg text-gray-900 py-2">مهارت های مورد نیاز یک فرانت اند کار</h1>
+                    <p class="text-sm text-gray-600 leading-relaxed text-justify py-2 overflow-hidden whitespace-nowrap text-ellipsis">فرانت اند یا Front End، به بخش قابل مشاهده‌ی یک وب سایت یا نرم افزار توسط کاربران می‌گویند. فرانت اند، کدهای غیر قابل فهم برای کاربران را در قالب ظاهری گرافیکی و بصری به آن‌ها نمایش می‌دهد تا بتوانند به راحتی از بخش‌های مختلف سایت استفاده کنند. </p>
+                    <hr class=" w-full border-gray-400 border-solid border-1 mx-auto rounded-lg my-2 border-opacity-50">
+
+                    <!-- بخش کامنت و ویو -->
+                    <div class="w-full flex flex-row justify-start items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sky-500 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>1560
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sky-500 ml-2 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                        </svg>33
+                    </div>
+                </div>
+
+                <div class="md:w-1/3 sm:w-full py-4 relative mx-4" data-aos="flip-left"
+                     data-aos-easing="ease-out-cubic"
+                     data-aos-duration="1500">
+                    <img src="images/Layer 55.png" alt="" class="py-2 shadow-xl drop-shadow-2xl">
+                    <span class="text-white bg-sky-400 px-2 py-4 mx-auto text-sm text-center absolute bottom-36 left-0 bg-opacity-80 rounded-br-lg rounded-tl-lg">18  شهریور</span>
+                    <h1 class="text-lg text-gray-900 py-2">چرا به وبسایت نیاز داریم؟</h1>
+                    <p class="text-sm text-gray-600 leading-relaxed text-justify py-2 overflow-hidden whitespace-nowrap text-ellipsis"> هر وبسایت یک برند مهم برای هر کسب و کاریست و اهمیت ویژه ای دارد</p>
+                    <hr class=" w-full border-gray-400 border-solid border-1 mx-auto rounded-lg my-2 border-opacity-50">
+
+                    <!-- بخش کامنت و ویو -->
+                    <div class="w-full flex flex-row justify-start items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sky-500 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>1560
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sky-500 ml-2 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                        </svg>33
+                    </div>
+                </div>
+
+                <div class="md:w-1/3 sm:w-full py-4 relative mx-4" data-aos="flip-left"
+                     data-aos-easing="ease-out-cubic"
+                     data-aos-duration="2000">
+                    <img src="images/Layer 54.png" alt="" class="py-2 shadow-xl drop-shadow-2xl">
+                    <span class="text-white bg-sky-400 px-2 py-4 mx-auto text-sm text-center absolute bottom-36 left-0 bg-opacity-80 rounded-br-lg rounded-tl-lg">20  شهریور</span>
+                    <h1 class="text-lg text-gray-900 py-2 ">مهارت های مهم برنامه نویس بک اند</h1>
+                    <p class="text-sm text-gray-600 leading-relaxed text-justify py-2 overflow-hidden whitespace-nowrap text-ellipsis">زبان هایی نیاز هست که هر برنامه نویس بک اند باید به آنها تسلط داشته باشد.</p>
+                    <hr class=" w-full border-gray-400 border-solid border-1 mx-auto rounded-lg my-2 border-opacity-50">
+
+                    <!-- بخش کامنت و ویو -->
+                    <div class="w-full flex flex-row justify-start items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sky-500 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>1560
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-sky-500 ml-2 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                        </svg>33
+                    </div>
+                </div>
+
+            </div>
+        </article>
+    <!--  end posts -->
+
+    <!-- makani -->
+        <div class="w-full h-32 bg-gradient-to-r from-sky-400 bg-blue-400 to-pink-300 overflow-x-hidden backdrop-opacity-60 flex flex-col backdrop-opacity-60
+         justify-center items-center" >
+            <img src="images/PIN%202.png" alt="" class="w-6" data-aos="fade-down" >
+            <h2 class="text-lg py-4 text-white" data-aos="fade-down">موقعیت مکانی</h2>
+            <hr class=" w-14 border-white border-solid border-2 mx-auto rounded-lg" data-aos="fade-down">
+        </div>
+    <!--end makani -->
+
+    <!-- footer-->
+        <footer class="w-full py-3 footer mx-auto ">
+            <a name="contact"></a>
+                <div class="md:w-full mx-auto md:flex md:flex-row sm:flex sm:flex-col sm:w-full">
+
+                <div class="md:w-1/3 sm:w-full flex flex-col justify-center items-center my-10 mx-auto " data-aos="fade-left">
+                    <h2 class="text-xl mb-3 ">ارتباط با ما</h2>
+                    <hr class=" w-32 border-sky-500 border-solid border-2 rounded-lg">
+                    <br>
+
+                    <div class=" flex flex-col justify-center items-center mr-16">
+
+                        <div class="w-full flex flex-row my-2  ">
+                           <img src="images/insta.png" alt="instagram" class="h-full">
+                            <a href="https://www.instagram.com/blue__site" class="font-bold m-2 text-gray-800 ">blue__site </a>
+                        </div>
+
+                        <div class="w-full flex flex-row  my-2 ">
+                            <img src="images/whtsapp.png" alt="instagram" class="h-full">
+                            <a href="https://api.whatsapp.com/send?phone=989938640796" class="font-bold m-2 text-gray-800 ">09938640796</a>
+                        </div>
+
+                        <div class="w-full flex flex-row  my-2 ">
+                            <img src="images/email.png" alt="instagram" class="h-full">
+                            <a href="#" class="font-bold m-2 text-gray-800 ">masoomehc60@gmail.com</a>
+                        </div>
+
+                        <div class="w-full flex flex-row  my-2">
+                            <img src="images/tele.png" alt="instagram" class="h-full">
+                            <a href="#" class="font-bold m-2 text-gray-800 ">masoomeh388</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:w-1/3 sm:w-full flex flex-col justify-center items-center my-10" data-aos="fade-up">
+                    <h2 class="text-xl mb-3 ">خدمات ما</h2>
+                    <hr class=" w-32 border-sky-500 border-solid border-2 mx-auto rounded-lg">
+                    <br>
+                    <ul class=" md:my-4 text-gray-800  text-center">
+                        <li class="my-2 leading-relaxed">برنامه نویسی فرانت اند</li>
+                        <li class="my-2 leading-relaxed">انواع طراحی سایت با وردپرس</li>
+                        <li class="my-2 leading-relaxed">ساخت موشن گرافیک و تبلیغات </li>
+                        <li class="my-2 leading-relaxed">برنامه نویسی بک اند با جنگو</li>
+                        <li class="my-2 leading-relaxed">طراحی لوگو و بنر سایت</li>
+                     </ul>
+
+                </div>
+
+                <div class="md:w-1/3 sm:w-full flex flex-col justify-center items-center my-10" data-aos="fade-right">
+                    <h2 class="mb-3 text-xl">اینستاگرام</h2>
+                    <hr class=" w-32 border-sky-500 border-solid border-2 mx-auto rounded-lg">
+                    <br>
+                    <div class="md:w-52 flex flex-wrap sm:w-60 px-10 md:px-0 ">
+
+                        <img src="images/web4.jpg" alt="" class="w-1/3 px-0.5">
+                        <img src="images/web6.jpg" alt="" class="w-1/3 px-0.5">
+                        <img src="images/web5.jpg" alt="" class="w-1/3 px-0.5">
+                        <img src="images/web9.jpg" alt="" class="w-1/3 p-0.5">
+                        <img src="images/web7.jpg" alt="" class="w-1/3 p-0.5">
+                        <img src="images/web8.jpg" alt="" class="w-1/3 p-0.5">
+                        <img src="images/Capture.jpg" alt="" class="w-1/3 p-0.5">
+                        <img src="images/web2n.jpg" alt="" class="w-1/3 p-0.5">
+                        <img src="images/web3.jpg" alt="" class="w-1/3 p-0.5">
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </footer>
+
+    <!-- end footer -->
+
+    <div class="w-full h-10 bg-slate-900 text-white flex justify-center items-center">@طراحی سایت توسط بلوسایت</div>
+
+
+    <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('dropdown', () => ({
+            open: false,
+
+            toggle() {
+                this.open = !this.open
+            }
+        }))
+    })
+
+    AOS.init();
+</script>
+</body>
+</html>
